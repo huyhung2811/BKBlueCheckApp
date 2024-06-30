@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/abril_fatface</item>
+        <item>@font/anton</item>
+        <item>@font/archivo_black</item>
+        <item>@font/baloo</item>
+        <item>@font/bevan</item>
+        <item>@font/inder</item>
+        <item>@font/inter_black</item>
+        <item>@font/inter_bold</item>
+        <item>@font/inter_extrabold</item>
+        <item>@font/paytone_one</item>
+    </array>
+</resources>
