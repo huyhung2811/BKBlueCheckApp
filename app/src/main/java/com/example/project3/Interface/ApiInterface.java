@@ -3,10 +3,15 @@ package com.example.project3.Interface;
 import com.example.project3.Activity.Common.StudentDetailsActivity;
 import com.example.project3.Body.AttendanceTimeBody;
 import com.example.project3.Body.LoginBody;
+import com.example.project3.Body.NewRequestBody;
 import com.example.project3.Body.StudentAttendanceBody;
+import com.example.project3.Body.UpdateRequestBody;
 import com.example.project3.Response.ClassStudentsResponse;
 import com.example.project3.Response.CourseClassDetailsResponse;
 import com.example.project3.Response.CourseClassInSemesterResponse;
+import com.example.project3.Response.CreateRequestResponse;
+import com.example.project3.Response.DayOffRequestDetailsResponse;
+import com.example.project3.Response.DayOffRequestResponse;
 import com.example.project3.Response.LoginResponse;
 import com.example.project3.Response.LogoutResponse;
 import com.example.project3.Response.ProfileStudentResponse;
@@ -22,6 +27,7 @@ import com.example.project3.Response.StudentAttendanceResponse;
 import com.example.project3.Response.StudentClassResponse;
 import com.example.project3.Response.StudentDetailsResponse;
 import com.example.project3.Response.TeacherDetailsResponse;
+import com.example.project3.Response.UpdateRequestResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -82,4 +88,12 @@ public interface ApiInterface {
     Call<TeacherDetailsResponse> getTeacherDetails(@Header("Authorization") String authToken, @Query("teacher_code") String teacherCode);
     @POST("/api/class-students")
     Call<ClassStudentsResponse> getClassStudents(@Header("Authorization") String authToken, @Query("class_id")  int classId);
+    @GET("/api/day-off/show")
+    Call<DayOffRequestResponse> getDayOffRequest(@Header("Authorization") String authToken);
+    @POST("/api/day-off/create")
+    Call<CreateRequestResponse> createDayOffRequest(@Header("Authorization") String authToken, @Body NewRequestBody newRequestBody);
+    @GET("/api/day-off/request-details")
+    Call<DayOffRequestDetailsResponse> getDayOffRequestDetails(@Header("Authorization") String authToken, @Query("request_id") int id);
+    @POST("/api/day-off/change-request-status")
+    Call<UpdateRequestResponse> updateDayOffRequest(@Header("Authorization") String authToken, @Body UpdateRequestBody updateRequestBody);
 }

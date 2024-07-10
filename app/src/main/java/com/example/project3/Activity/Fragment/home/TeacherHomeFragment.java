@@ -21,6 +21,7 @@ import com.example.project3.Activity.Schedule.ScheduleActivity;
 import com.example.project3.Activity.Schedule.TeacherScheduleActivity;
 import com.example.project3.Activity.Student.AttendanceActivity;
 import com.example.project3.Activity.Student.StudentClassActivity;
+import com.example.project3.Activity.Teacher.RequestActivity;
 import com.example.project3.Interface.ApiInterface;
 import com.example.project3.Network.RetrofitClientInstance;
 import com.example.project3.R;
@@ -35,7 +36,7 @@ import retrofit2.Response;
 public class TeacherHomeFragment extends Fragment {
     private TextView name;
     private ImageView avatar;
-    private LinearLayout layoutCalendar, layoutAttendance, layoutStudentClass, layoutSearch;
+    private LinearLayout layoutCalendar, layoutRequest;
     private ImageView calendar;
     private ApiInterface apiInterface;
 
@@ -50,9 +51,8 @@ public class TeacherHomeFragment extends Fragment {
 
         name = view.findViewById(R.id.textName);
         avatar = view.findViewById(R.id.imageAvatar);
-        layoutStudentClass = view.findViewById(R.id.layoutStudentClass);
         layoutCalendar = view.findViewById(R.id.layoutCalendar);
-        layoutAttendance = view.findViewById(R.id.layoutAttendance);
+        layoutRequest = view.findViewById(R.id.layoutRequest);
 
         loadUserProfile(token);
 
@@ -64,21 +64,13 @@ public class TeacherHomeFragment extends Fragment {
             }
         });
 
-//        layoutAttendance.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(requireActivity(), AttendanceActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        layoutStudentClass.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(requireActivity(), StudentClassActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        layoutRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(requireActivity(), RequestActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

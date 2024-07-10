@@ -8,8 +8,8 @@ public class RetrofitClientInstance {
     public static Retrofit getInstance(){
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://103.249.201.167:8000")
-//                    .baseUrl("http://192.168.0.103:8000")
+//                    .baseUrl("http://103.249.201.167:8000")
+                    .baseUrl("http://192.168.0.103:8000")
 //                    .baseUrl("http://192.168.1.35:8000")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();

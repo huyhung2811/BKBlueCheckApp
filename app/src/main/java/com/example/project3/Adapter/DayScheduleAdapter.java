@@ -55,20 +55,18 @@ public class DayScheduleAdapter extends ArrayAdapter<Schedule> {
                 Date startDate = inputFormat.parse(scheduleClass.getStartTime());
                 startTime.setText(outputFormat.format(startDate));
             } catch (ParseException e) {
-                startTime.setText(scheduleClass.getStartTime()); // Fallback to original if parsing fails
+                startTime.setText(scheduleClass.getStartTime());
             }
 
-            // Parse and format the end time
             try {
                 Date endDate = inputFormat.parse(scheduleClass.getEndTime());
                 endTime.setText(outputFormat.format(endDate));
             } catch (ParseException e) {
-                endTime.setText(scheduleClass.getEndTime()); // Fallback to original if parsing fails
+                endTime.setText(scheduleClass.getEndTime());
             }
-//            endTime.setText(scheduleClass.getEndTime());
             title.setText(scheduleClass.getCourseCode() + " - " + scheduleClass.getName() + " - " + scheduleClass.getClassCode());
             txtTime.setText(scheduleClass.getSchoolDay() + ", " +scheduleClass.getRoom());
-            txtWeek.setText("Tuần 1");
+//            txtWeek.setText("Tuần 1");
         }
 
         return view;

@@ -1,5 +1,6 @@
 package com.example.project3.Activity.Fragment.home;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.project3.Activity.Schedule.ScheduleActivity;
 import com.example.project3.Activity.Student.AttendanceActivity;
+import com.example.project3.Activity.Student.RequestActivity;
 import com.example.project3.Activity.Student.StudentClassActivity;
 import com.example.project3.Interface.ApiInterface;
 import com.example.project3.Network.RetrofitClientInstance;
@@ -33,7 +35,7 @@ import retrofit2.Response;
 public class StudentHomeFragment extends Fragment {
     private TextView name;
     private ImageView avatar;
-    private LinearLayout layoutCalendar, layoutAttendance, layoutStudentClass, layoutSearch;
+    private LinearLayout layoutCalendar, layoutAttendance, layoutStudentClass, layoutRequest;
     private ImageView calendar;
     private ApiInterface apiInterface;
 
@@ -47,6 +49,7 @@ public class StudentHomeFragment extends Fragment {
         layoutStudentClass = view.findViewById(R.id.layoutStudentClass);
         layoutCalendar = view.findViewById(R.id.layoutCalendar);
         layoutAttendance = view.findViewById(R.id.layoutAttendance);
+        layoutRequest = view.findViewById(R.id.layoutRequest);
 
         apiInterface = RetrofitClientInstance.getInstance().create(ApiInterface.class);
         SharedPreferences prefs = requireActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
@@ -73,6 +76,14 @@ public class StudentHomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(requireActivity(), StudentClassActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        layoutRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(requireActivity(), RequestActivity.class);
                 startActivity(intent);
             }
         });

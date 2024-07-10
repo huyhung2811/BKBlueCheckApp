@@ -76,7 +76,7 @@ public class StudentMonthScheduleFragment extends Fragment {
                 String selectedDate = String.format(Locale.getDefault(), "%04d-%02d-%02d", year, month + 1, dayOfMonth);
                 txtCurrentDate.setText(selectedDate);
                 apiResultMonth(token, selectedDate);
-                apiResultDay(token,selectedDate);
+                apiResultDay(token, selectedDate);
             }
         });
 
@@ -99,7 +99,6 @@ public class StudentMonthScheduleFragment extends Fragment {
 
                             if (!daySchedule.getSchedule().isEmpty()) {
                                 daysWithSchedule.add(day);
-
                             }
                         }
 
@@ -110,13 +109,8 @@ public class StudentMonthScheduleFragment extends Fragment {
                             int year = Integer.parseInt(parts[0]);
                             int month = Integer.parseInt(parts[1]) - 1;
                             int dayOfMonth = Integer.parseInt(parts[2]);
-
                             calendar.set(year, month, dayOfMonth);
-
-                            long timeInMillis = calendar.getTimeInMillis();
-
                         }
-
                     }
                 }
             }
@@ -140,7 +134,7 @@ public class StudentMonthScheduleFragment extends Fragment {
                     ScheduleInDayResponse scheduleInDayResponse = response.body();
                     if (scheduleInDayResponse != null) {
                         List<Schedule> scheduleList = scheduleInDayResponse.getSchedule();
-                        if(scheduleList == null || scheduleList.isEmpty()){
+                        if (scheduleList == null || scheduleList.isEmpty()) {
                             txtResultError.setText(scheduleInDayResponse.getDescription());
                             txtResultError.setVisibility(View.VISIBLE);
                             lvScheduleClasses.setVisibility(View.GONE);
@@ -164,7 +158,7 @@ public class StudentMonthScheduleFragment extends Fragment {
                         String errorBodyString = response.errorBody().string();
                         JSONObject errorObject = new JSONObject(errorBodyString);
                         String errorMessage = errorObject.getString("message");
-                        Log.d("D",errorBodyString);
+                        Log.d("D", errorBodyString);
                         txtResultError.setText(errorMessage);
                         txtResultError.setVisibility(View.VISIBLE);
                         lvScheduleClasses.setVisibility(View.GONE);

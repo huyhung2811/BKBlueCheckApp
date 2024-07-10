@@ -85,7 +85,7 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="H, 1:1"
-                app:layout_constraintEnd_toStartOf="@id/layoutAttendance"
+                app:layout_constraintEnd_toStartOf="@id/layoutRequest"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -109,7 +109,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layoutAttendance"
+                android:id="@+id/layoutRequest"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
